@@ -31,7 +31,7 @@ function App() {
 
   return (
     <Suspense fallback="loading">
-      <Header data={allData} i18n={i18n} />
+      {/* <Header data={allData} i18n={i18n} /> */}
       <Routes>
         <Route path="/" element={<Home data={allData} />} />
         <Route path="/about" element={<About data={allData} />} />
