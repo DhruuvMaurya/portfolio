@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { skills } from "../../utils/helper";
 import projects from "../../assets/whiteProject.svg";
 import about from "../../assets/whiteAbout.svg";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -79,18 +80,27 @@ const Banner = () => {
       </div>
 
       <div className="flex items-center gap-12 mt-8">
-        <div className="flex items-center gap-3.5">
-          <div className="w-6">
-            <img src={projects} alt="projects" />
+        <Link to="projects">
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 hover:bg-secondary flex items-center justify-center rounded-full">
+              <div className="w-6">
+                <img src={projects} alt="projects" />
+              </div>
+            </div>
+            <div>{`SEE MY PROJECTS`}</div>
           </div>
-          <div>{`SEE MY PROJECTS`}</div>
-        </div>
-        <div className="flex items-center gap-3.5">
-          <div className="w-6">
-            <img src={about} alt="about" />
+        </Link>
+
+        <Link to="about">
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 hover:bg-secondary flex items-center justify-center rounded-full">
+              <div className="w-6">
+                <img src={about} alt="about" />
+              </div>
+            </div>
+            <div>{`MORE ABOUT ME`}</div>
           </div>
-          <div>{`MORE ABOUT ME`}</div>
-        </div>
+        </Link>
       </div>
     </div>
   );

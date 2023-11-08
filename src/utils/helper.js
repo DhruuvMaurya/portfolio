@@ -12,4 +12,5 @@ export const skills = [
   "REST APIs",
   "SEO",
   "GIT",
+  "AGILE",
 ];

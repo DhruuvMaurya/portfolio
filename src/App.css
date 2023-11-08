@@ -12,3 +12,11 @@ img {
   width: 100%;
   object-fit: cover;
 }
+
+.hover-image {
+  transition: 0.3s;
+}
+
+.hover-image:hover {
+  content: url("./assets/home.svg");
+}

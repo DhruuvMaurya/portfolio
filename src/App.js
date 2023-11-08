@@ -8,7 +8,8 @@ import About from "./pages/About";
 
 // Data
 import data from "./data";
-import Header from "./layout/Header";
+import Layout from "./layout";
+import Projects from "./pages/Projects";
 
 function App() {
   const { i18n } = useTranslation();
@@ -32,10 +33,13 @@ function App() {
   return (
     <Suspense fallback="loading">
       {/* <Header data={allData} i18n={i18n} /> */}
-      <Routes>
-        <Route path="/" element={<Home data={allData} />} />
-        <Route path="/about" element={<About data={allData} />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home data={allData} />} />
+          <Route path="/about" element={<About data={allData} />} />
+          <Route path="/projects" element={<Projects data={allData} />} />
+        </Routes>
+      </Layout>
     </Suspense>
   );
 }
