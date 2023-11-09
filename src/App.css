@@ -5,7 +5,26 @@
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background-color: #0c1215;
+  padding-bottom: 65px;
+}
+
+/* Style for WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07080d; /* Set the scrollbar track background to transparent */
+}
+
+::-webkit-scrollbar-thumb {
+  height: 10px;
+  background: #203c5c; /* Set the scrollbar thumb background color */
+  border-radius: 10px;
 }
 
 img {
@@ -19,4 +38,8 @@ img {
 
 .hover-image:hover {
   content: url("./assets/home.svg");
+}
+
+.hover-link:hover {
+  background-color: #c0e9fa66; /* Your hover background color */
 }

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="mt-16 mb-16">
       <div className="border-b font-jetBrains text-2xl font-extrabold">
         CONTACT
       </div>

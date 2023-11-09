@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import SwitchLang from "../../layout/SwitchLang";
 import logo from "../../assets/logo.svg";
 import home from "../../assets/home.svg";
 import disabledHome from "../../assets/disabledHome.svg";
@@ -6,20 +7,21 @@ import disabledAbout from "../../assets/disabledAbout.svg";
 import disabledProject from "../../assets/disabledProject.svg";
 import project from "../../assets/project.svg";
 import about from "../../assets/about.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header({ data, i18n }) {
   const [activeImage, setActiveImage] = useState("");
-  // const menuItems = [
-  //   {
-  //     title: data.menu1,
-  //     uri: "/",
-  //   },
-  //   {
-  //     title: data.menu2,
-  //     uri: "/about",
-  //   },
-  // ];
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setActiveImage("homeActive");
+    } else if (location.pathname === "/about") {
+      setActiveImage("aboutActive");
+    } else if (location.pathname === "/projects") {
+      setActiveImage("projectActive");
+    }
+  }, [location.pathname, activeImage]);
 
   return (
     // <header>
@@ -44,25 +46,35 @@ export default function Header({ data, i18n }) {
       </Link>
 
       <div className="bg-headerBg w-12 h-36 p-1.5 items-center rounded-full flex flex-col justify-between">
-        <Link to="/">
-          <div
-            className="w-10 h-10 flex items-center justify-center hover:rounded-full hover:bg-secondary hover:hover-image hover:cursor-pointer"
-            onMouseEnter={() => setActiveImage("homeActive")}
-            onMouseLeave={() => setActiveImage("")}
-          >
-            <div className="w-5 h-5">
-              <img
-                src={activeImage === "homeActive" ? home : disabledHome}
-                alt="logo"
-                className="w-full h-full"
-              />
-            </div>
+        <Link
+          to="/"
+          className={`w-10 h-10 flex items-center justify-center ${
+            activeImage === "homeActive"
+              ? "rounded-full bg-secondary cursor-pointer hover:bg-hover-image"
+              : ""
+          }`}
+          onMouseEnter={() => setActiveImage("homeActive")}
+          onMouseLeave={() => setActiveImage("")}
+        >
+          <div className="w-5 h-5">
+            <img
+              src={activeImage === "homeActive" ? home : disabledHome}
+              alt="logo"
+              className="w-full h-full"
+            />
           </div>
         </Link>
         <Link to="about">
           <div
-            className="w-10 h-10 flex items-center justify-center hover:rounded-full hover:bg-secondary hover:hover-image hover:cursor-pointer"
-            onMouseEnter={() => setActiveImage("aboutActive")}
+            className={`w-10 h-10 flex items-center justify-center ${
+              activeImage === "aboutActive"
+                ? "rounded-full bg-secondary cursor-pointer hover:bg-hover-image"
+                : ""
+            }`}
+            onMouseEnter={() => {
+              setActiveImage("aboutActive");
+              console.log("about enter", activeImage);
+            }}
             onMouseLeave={() => setActiveImage("")}
           >
             <div className="w-5 h-5">
@@ -76,7 +88,11 @@ export default function Header({ data, i18n }) {
         </Link>
         <Link to="projects">
           <div
-            className="w-10 h-10 flex items-center justify-center hover:rounded-full hover:bg-secondary hover:hover-image hover:cursor-pointer"
+            className={`w-10 h-10 flex items-center justify-center ${
+              activeImage === "projectActive"
+                ? "rounded-full bg-secondary cursor-pointer hover:bg-hover-image"
+                : ""
+            }`}
             onMouseEnter={() => setActiveImage("projectActive")}
             onMouseLeave={() => setActiveImage("")}
           >

@@ -53,7 +53,7 @@ const Banner = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="text-primary font-jetBrains font-extrabold text-5xl mt-12">
+      <div className="text-primary font-jetBrains font-extrabold text-5xl ">
         {`HELLO, I AM`}{" "}
         <span className="text-white border-r-2 border-primary">{text}</span>
       </div>

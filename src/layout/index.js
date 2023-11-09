@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <Video />
-      <div className="absolute text-white w-4/5 h-[90%] flex flex-col justify-between">
+      <div className="absolute text-white w-10/12 h-[90%] flex flex-col justify-between">
         <Header />
         {children}
         <Footer />
